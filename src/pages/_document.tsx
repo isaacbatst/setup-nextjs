@@ -1,4 +1,11 @@
-import Document, { DocumentContext, DocumentInitialProps } from 'next/document'
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Html,
+  Head,
+  Main,
+  NextScript
+} from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
@@ -27,5 +34,28 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal()
     }
+  }
+
+  render(): JSX.Element {
+    return (
+      <Html lang="pt">
+        <Head>
+          <meta charSet="utf-8" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=ROboto:400,500,700"
+          />
+          <link
+            rel="shortcut icon"
+            href="https://rocketseat.com.br/favicon.ico"
+            type="image/x-icon"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
   }
 }
